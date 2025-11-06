@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple HTML Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome to My Simple Website</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home">
+            <h2>Home Section</h2>
+            <p>This is a basic HTML page with CSS and JavaScript functionality.</p>
+            <img src="https://via.placeholder.com/150" alt="Placeholder Image">
+        </section>
+
+        <section id="about">
+            <h2>About Us</h2>
+            <p>We create simple web pages using HTML, CSS, and JavaScript.</p>
+            
+            <!-- CSS Information Section -->
+            <div class="css-info">
+                <h3>CSS Features Included:</h3>
+                <ul>
+                    <li>Responsive design for all devices</li>
+                    <li>Modern color scheme and typography</li>
+                    <li>Smooth hover effects and transitions</li>
+                    <li>Form styling with validation states</li>
+                    <li>Table styling with alternating colors</li>
+                    <li>Box shadows and rounded corners</li>
+                </ul>
+                
+                <div class="css-demo">
+                    <h4>CSS Demo Elements:</h4>
+                    <div class="demo-boxes">
+                        <div class="demo-box box-1">Hover Effect</div>
+                        <div class="demo-box box-2">Gradient Background</div>
+                        <div class="demo-box box-3">Shadow Effect</div>
+                    </div>
+                </div>
+            </div>
+
+            <table border="1">
+                <tr>
+                    <th>Technology</th>
+                    <th>Status</th>
+                    <th>Features</th>
+                </tr>
+                <tr>
+                    <td>HTML</td>
+                    <td>Active</td>
+                    <td>Semantic structure</td>
+                </tr>
+                <tr>
+                    <td>CSS</td>
+                    <td>Active</td>
+                    <td>Responsive design</td>
+                </tr>
+                <tr>
+                    <td>JavaScript</td>
+                    <td>Active</td>
+                    <td>Interactive functionality</td>
+                </tr>
+            </table>
+        </section>
+
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <form id="contactForm">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name"><br><br>
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email"><br><br>
+                
+                <label for="message">Message:</label><br>
+                <textarea id="message" name="message" rows="4" cols="30"></textarea><br><br>
+                
+                <input type="submit" value="Send Message">
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; <span id="currentYear"></span> Simple HTML Website. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
