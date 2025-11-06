@@ -3,99 +3,1168 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple HTML Page</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>ARIGYE WISDOM | Web Developer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --text: #333;
+            --text-light: #777;
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: #f9f9f9;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            line-height: 1.3;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            display: inline-block;
+            position: relative;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--secondary);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+        }
+
+        .btn:hover {
+            background-color: #2980b9;
+            transform: translateY(-3px);
+        }
+
+        .btn-accent {
+            background-color: var(--accent);
+        }
+
+        .btn-accent:hover {
+            background-color: #c0392b;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: var(--shadow);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .logo span {
+            color: var(--secondary);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        nav ul li a:hover {
+            color: var(--secondary);
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--secondary);
+            transition: var(--transition);
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 180px 0 120px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" preserveAspectRatio="none"><path fill="rgba(255,255,255,0.05)" d="M0,0 L1000,0 L1000,1000 L0,1000 Z M0,0 Q500,200 1000,0 L1000,1000 L0,1000 Z"></path></svg>');
+            background-size: cover;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .hero h2 {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            color: var(--light);
+            font-weight: 400;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .avatar-container {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin: 0 auto 30px;
+            background-color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow);
+            border: 5px solid var(--light);
+            overflow: hidden;
+        }
+
+        .avatar {
+            width: 100%;
+            height: 100%;
+            background-color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 5rem;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            margin-top: 50px;
+        }
+
+        .stat {
+            margin: 0 20px;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        /* About Section */
+        .about {
+            background-color: white;
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-image {
+            flex: 1;
+            text-align: center;
+        }
+
+        .about-image img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .traits {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .trait {
+            background-color: var(--light);
+            padding: 15px 20px;
+            border-radius: 5px;
+            margin-right: 15px;
+            margin-bottom: 15px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+        }
+
+        .trait i {
+            margin-right: 10px;
+            color: var(--secondary);
+        }
+
+        .about-details {
+            margin-top: 30px;
+        }
+
+        .detail-item {
+            margin-bottom: 15px;
+            display: flex;
+        }
+
+        .detail-label {
+            font-weight: 600;
+            width: 150px;
+        }
+
+        /* Services Section */
+        .services {
+            background-color: #f1f8ff;
+        }
+
+        .services-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background-color: white;
+            padding: 40px 30px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            margin-bottom: 15px;
+        }
+
+        /* Skills Section */
+        .skills {
+            background-color: white;
+        }
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .skill-category {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .skill-category h3 {
+            color: var(--secondary);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .skill-category h3 i {
+            margin-right: 10px;
+            font-size: 1.5rem;
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .skill-list li i {
+            color: var(--secondary);
+            margin-right: 10px;
+        }
+
+        /* Projects Section */
+        .projects {
+            background-color: #f1f8ff;
+        }
+
+        .projects-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .project-image {
+            height: 200px;
+            background-color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+
+        .project-content {
+            padding: 25px;
+        }
+
+        .project-content h3 {
+            margin-bottom: 10px;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+
+        .project-tag {
+            background-color: var(--light);
+            padding: 5px 10px;
+            border-radius: 3px;
+            font-size: 0.8rem;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+
+        /* Social Section */
+        .social {
+            background-color: white;
+        }
+
+        .social-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .social-card {
+            background-color: var(--light);
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            width: 200px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .social-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .social-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .social-whatsapp {
+            color: #25D366;
+        }
+
+        .social-tiktok {
+            color: #000000;
+        }
+
+        .social-instagram {
+            color: #E4405F;
+        }
+
+        .social-twitter {
+            color: #1DA1F2;
+        }
+
+        .social-facebook {
+            color: #1877F2;
+        }
+
+        .social-github {
+            color: #333;
+        }
+
+        .social-linkedin {
+            color: #0A66C2;
+        }
+
+        .social-email {
+            color: #EA4335;
+        }
+
+        /* Contact Section */
+        .contact {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .contact h2 {
+            color: white;
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .contact-info {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 10px;
+        }
+
+        .contact-info h3 {
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .contact-details {
+            list-style: none;
+        }
+
+        .contact-details li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .contact-details li i {
+            margin-right: 15px;
+            font-size: 1.2rem;
+            color: var(--secondary);
+        }
+
+        .contact-form {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: none;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.9);
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 50px 0 20px;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .footer-logo span {
+            color: var(--secondary);
+        }
+
+        .footer-social {
+            margin-bottom: 30px;
+        }
+
+        .footer-social a {
+            color: white;
+            margin: 0 15px;
+            font-size: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .footer-social a:hover {
+            color: var(--secondary);
+        }
+
+        .copyright {
+            font-size: 0.9rem;
+            opacity: 0.7;
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            width: 100%;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .about-image {
+                order: -1;
+                margin-bottom: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                margin-top: 20px;
+            }
+            
+            nav ul li {
+                margin: 0 10px;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero h2 {
+                font-size: 1.5rem;
+            }
+            
+            .hero-stats {
+                flex-direction: column;
+            }
+            
+            .stat {
+                margin: 10px 0;
+            }
+            
+            .mobile-menu {
+                display: block;
+                position: absolute;
+                top: 20px;
+                right: 20px;
+            }
+            
+            nav {
+                display: none;
+                width: 100%;
+                margin-top: 20px;
+            }
+            
+            nav.active {
+                display: block;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav ul li {
+                margin: 10px 0;
+            }
+        }
+    </style>
 </head>
 <body>
+    <!-- Header -->
     <header>
-        <h1>Welcome to My Simple Website</h1>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
+        <div class="container">
+            <div class="header-container">
+                <div class="logo">ARIGYE <span>WISDOM</span></div>
+                <div class="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <nav id="main-nav">
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#skills">Skills</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#social">Connect</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
     </header>
 
-    <main>
-        <section id="home">
-            <h2>Home Section</h2>
-            <p>This is a basic HTML page with CSS and JavaScript functionality.</p>
-            <img src="https://via.placeholder.com/150" alt="Placeholder Image">
-        </section>
-
-        <section id="about">
-            <h2>About Us</h2>
-            <p>We create simple web pages using HTML, CSS, and JavaScript.</p>
-            
-            <!-- CSS Information Section -->
-            <div class="css-info">
-                <h3>CSS Features Included:</h3>
-                <ul>
-                    <li>Responsive design for all devices</li>
-                    <li>Modern color scheme and typography</li>
-                    <li>Smooth hover effects and transitions</li>
-                    <li>Form styling with validation states</li>
-                    <li>Table styling with alternating colors</li>
-                    <li>Box shadows and rounded corners</li>
-                </ul>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="avatar-container">
+                    <div class="avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                </div>
+                <h1>ARIGYE WISDOM</h1>
+                <h2>Professional Web Developer & Programmer</h2>
+                <p>Creating innovative digital solutions with clean code, modern technologies, and user-centered design principles.</p>
+                <a href="#contact" class="btn">Hire Me</a>
+                <a href="#projects" class="btn btn-accent">View My Work</a>
                 
-                <div class="css-demo">
-                    <h4>CSS Demo Elements:</h4>
-                    <div class="demo-boxes">
-                        <div class="demo-box box-1">Hover Effect</div>
-                        <div class="demo-box box-2">Gradient Background</div>
-                        <div class="demo-box box-3">Shadow Effect</div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <div class="stat-value">19</div>
+                        <div class="stat-label">Years Old</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value">MBARARA</div>
+                        <div class="stat-label">Based In</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value">25+</div>
+                        <div class="stat-label">Projects Completed</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value">100%</div>
+                        <div class="stat-label">Client Satisfaction</div>
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <table border="1">
-                <tr>
-                    <th>Technology</th>
-                    <th>Status</th>
-                    <th>Features</th>
-                </tr>
-                <tr>
-                    <td>HTML</td>
-                    <td>Active</td>
-                    <td>Semantic structure</td>
-                </tr>
-                <tr>
-                    <td>CSS</td>
-                    <td>Active</td>
-                    <td>Responsive design</td>
-                </tr>
-                <tr>
-                    <td>JavaScript</td>
-                    <td>Active</td>
-                    <td>Interactive functionality</td>
-                </tr>
-            </table>
-        </section>
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Me</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Hello! I'm <strong>ARIGYE WISDOM</strong>, a passionate and dedicated web developer from MBARARA with a strong focus on creating efficient, scalable, and user-friendly web applications. At just 19 years old, I've already developed a diverse portfolio of projects that showcase my technical abilities and creative problem-solving skills.</p>
+                    
+                    <p>My journey in web development began several years ago, and I've since mastered a wide range of technologies and frameworks. I believe that great web experiences are built on a foundation of solid code, intuitive design, and user-centered thinking.</p>
+                    
+                    <p>When I'm not coding, I enjoy staying updated with the latest web technologies, contributing to open-source projects, and exploring new frameworks that can enhance my development workflow. I'm known for my calm demeanor and ability to handle complex projects with precision and attention to detail.</p>
+                    
+                    <div class="about-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Name:</span>
+                            <span>ARIGYE WISDOM</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Age:</span>
+                            <span>19 Years</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Location:</span>
+                            <span>MBARARA, Uganda</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Email:</span>
+                            <span>wisdom@arigye.dev</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Freelance:</span>
+                            <span>Available</span>
+                        </div>
+                    </div>
+                    
+                    <div class="traits">
+                        <div class="trait"><i class="fas fa-check"></i> Calm & Composed</div>
+                        <div class="trait"><i class="fas fa-check"></i> Detail-Oriented</div>
+                        <div class="trait"><i class="fas fa-check"></i> Problem Solver</div>
+                        <div class="trait"><i class="fas fa-check"></i> Fast Learner</div>
+                        <div class="trait"><i class="fas fa-check"></i> Creative Thinker</div>
+                        <div class="trait"><i class="fas fa-check"></i> Team Player</div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <div class="avatar" style="width: 300px; height: 300px; font-size: 8rem;">
+                        <i class="fas fa-code"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        <section id="contact">
-            <h2>Contact Us</h2>
-            <form id="contactForm">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name"><br><br>
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>My Services</h2>
+                <p>I offer a wide range of web development services to help businesses establish their online presence</p>
+            </div>
+            <div class="services-container">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>Web Development</h3>
+                    <p>Custom website development using the latest technologies and frameworks to create fast, responsive, and scalable web applications.</p>
+                </div>
                 
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email"><br><br>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Responsive Design</h3>
+                    <p>Creating websites that work perfectly on all devices, from desktop computers to mobile phones and tablets.</p>
+                </div>
                 
-                <label for="message">Message:</label><br>
-                <textarea id="message" name="message" rows="4" cols="30"></textarea><br><br>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <h3>E-Commerce Solutions</h3>
+                    <p>Building online stores with secure payment gateways, inventory management, and customer relationship features.</p>
+                </div>
                 
-                <input type="submit" value="Send Message">
-            </form>
-        </section>
-    </main>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>SEO Optimization</h3>
+                    <p>Implementing SEO best practices to improve your website's visibility and ranking on search engines.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>Website Maintenance</h3>
+                    <p>Ongoing support and maintenance services to keep your website secure, updated, and running smoothly.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>Performance Optimization</h3>
+                    <p>Optimizing website speed and performance to provide better user experience and higher conversion rates.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <div class="section-title">
+                <h2>My Skills</h2>
+                <p>I've mastered a diverse set of technologies and tools to deliver high-quality web solutions</p>
+            </div>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3><i class="fas fa-code"></i> Frontend Development</h3>
+                    <ul class="skill-list">
+                        <li><i class="fas fa-check"></i> HTML5 & Semantic Markup</li>
+                        <li><i class="fas fa-check"></i> CSS3 & Responsive Design</li>
+                        <li><i class="fas fa-check"></i> JavaScript (ES6+)</li>
+                        <li><i class="fas fa-check"></i> React.js & Vue.js</li>
+                        <li><i class="fas fa-check"></i> Bootstrap & Tailwind CSS</li>
+                        <li><i class="fas fa-check"></i> Web Accessibility</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3><i class="fas fa-server"></i> Backend Development</h3>
+                    <ul class="skill-list">
+                        <li><i class="fas fa-check"></i> Node.js & Express</li>
+                        <li><i class="fas fa-check"></i> PHP & Laravel</li>
+                        <li><i class="fas fa-check"></i> Python & Django</li>
+                        <li><i class="fas fa-check"></i> RESTful API Development</li>
+                        <li><i class="fas fa-check"></i> Database Design (SQL & NoSQL)</li>
+                        <li><i class="fas fa-check"></i> Authentication & Security</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3><i class="fas fa-tools"></i> Tools & Technologies</h3>
+                    <ul class="skill-list">
+                        <li><i class="fas fa-check"></i> Git & GitHub</li>
+                        <li><i class="fas fa-check"></i> Webpack & Vite</li>
+                        <li><i class="fas fa-check"></i> Docker & Containerization</li>
+                        <li><i class="fas fa-check"></i> AWS & Cloud Services</li>
+                        <li><i class="fas fa-check"></i> CI/CD Pipelines</li>
+                        <li><i class="fas fa-check"></i> Agile Development</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <div class="section-title">
+                <h2>My Projects</h2>
+                <p>Here are some of the projects I've worked on recently</p>
+            </div>
+            <div class="projects-container">
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-shopping-bag"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>E-Commerce Platform</h3>
+                        <p>A full-featured online store with product catalog, shopping cart, and secure payment processing.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">React</span>
+                            <span class="project-tag">Node.js</span>
+                            <span class="project-tag">MongoDB</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-tasks"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Task Management App</h3>
+                        <p>A collaborative project management tool with real-time updates and team communication features.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Vue.js</span>
+                            <span class="project-tag">Firebase</span>
+                            <span class="project-tag">SCSS</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Analytics Dashboard</h3>
+                        <p>A data visualization platform for business analytics with interactive charts and reporting features.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">React</span>
+                            <span class="project-tag">D3.js</span>
+                            <span class="project-tag">Python</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Section -->
+    <section id="social" class="social">
+        <div class="container">
+            <div class="section-title">
+                <h2>Connect With Me</h2>
+                <p>Follow me on social media and let's stay connected</p>
+            </div>
+            <div class="social-container">
+                <a href="https://wa.me/256768683166" target="_blank" class="social-card">
+                    <div class="social-icon social-whatsapp">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <h3>WhatsApp</h3>
+                    <p>+256768683166</p>
+                </a>
+                
+                <a href="https://tiktok.com/@ArigyeWisdom" target="_blank" class="social-card">
+                    <div class="social-icon social-tiktok">
+                        <i class="fab fa-tiktok"></i>
+                    </div>
+                    <h3>TikTok</h3>
+                    <p>@ArigyeWisdom</p>
+                </a>
+                
+                <a href="https://instagram.com/ArigyeWisdom" target="_blank" class="social-card">
+                    <div class="social-icon social-instagram">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                    <h3>Instagram</h3>
+                    <p>@ArigyeWisdom</p>
+                </a>
+                
+                <a href="https://twitter.com/ArigyeWisdom" target="_blank" class="social-card">
+                    <div class="social-icon social-twitter">
+                        <i class="fab fa-twitter"></i>
+                    </div>
+                    <h3>Twitter</h3>
+                    <p>@ArigyeWisdom</p>
+                </a>
+                
+                <a href="https://facebook.com/ArigyeWisdom" target="_blank" class="social-card">
+                    <div class="social-icon social-facebook">
+                        <i class="fab fa-facebook"></i>
+                    </div>
+                    <h3>Facebook</h3>
+                    <p>Arigye Wisdom</p>
+                </a>
+                
+                <a href="https://github.com/ArigyeWisdom" target="_blank" class="social-card">
+                    <div class="social-icon social-github">
+                        <i class="fab fa-github"></i>
+                    </div>
+                    <h3>GitHub</h3>
+                    <p>ArigyeWisdom</p>
+                </a>
+                
+                <a href="https://linkedin.com/in/ArigyeWisdom" target="_blank" class="social-card">
+                    <div class="social-icon social-linkedin">
+                        <i class="fab fa-linkedin"></i>
+                    </div>
+                    <h3>LinkedIn</h3>
+                    <p>Arigye Wisdom</p>
+                </a>
+                
+                <a href="mailto:wisdom@arigye.dev" class="social-card">
+                    <div class="social-icon social-email">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>Email</h3>
+                    <p>wisdom@arigye.dev</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get In Touch</h2>
+                <p>Have a project in mind? Let's discuss how we can work together</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <ul class="contact-details">
+                        <li><i class="fas fa-map-marker-alt"></i> MBARARA, Uganda</li>
+                        <li><i class="fas fa-phone"></i> +256 768 683166</li>
+                        <li><i class="fas fa-envelope"></i> wisdom@arigye.dev</li>
+                        <li><i class="fas fa-clock"></i> Available for freelance projects</li>
+                    </ul>
+                    
+                    <h3 style="margin-top: 30px;">Why Work With Me?</h3>
+                    <p>I bring a unique combination of technical expertise, creative problem-solving, and a calm, focused approach to every project. My youth brings fresh perspectives and adaptability to new technologies.</p>
+                    <p>I'm committed to delivering solutions that not only meet but exceed expectations, with clean, maintainable code and responsive, user-friendly interfaces.</p>
+                </div>
+                
+                <div class="contact-form">
+                    <h3>Send Me a Message</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Subject" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer>
-        <p>&copy; <span id="currentYear"></span> Simple HTML Website. All rights reserved.</p>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">ARIGYE <span>WISDOM</span></div>
+                <div class="footer-social">
+                    <a href="https://wa.me/256768683166" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://tiktok.com/@ArigyeWisdom" target="_blank"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://instagram.com/ArigyeWisdom" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://twitter.com/ArigyeWisdom" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="https://github.com/ArigyeWisdom" target="_blank"><i class="fab fa-github"></i></a>
+                </div>
+                <div class="copyright">
+                    &copy; 2023 ARIGYE WISDOM. All Rights Reserved.
+                </div>
+            </div>
+        </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            document.getElementById('main-nav').classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.getElementById('main-nav').classList.remove('active');
+            });
+        });
+
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! I will get back to you soon.');
+            this.reset();
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
-</html>
+                </html>
